@@ -20,11 +20,17 @@ body{
     background-color: var(--bg-color-1);
     color: #EEE;
     font-family: 'Nunito Sans', sans-serif;
-    padding: 0 15px;
+    padding: 0 0px;
 }
 
 hr{
     margin-bottom: 10px;
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;               
+    background-color:#EEE;
+    height: 1px;
 }
 
 .header{
@@ -35,8 +41,7 @@ hr{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    padding: 15px 0;
-
+    padding: 15px 15px;
     & #city-input{
         background-color: var(--bg-color-2);
         border: none;
@@ -85,19 +90,21 @@ hr{
     }
 }
 
-hr {
-    border: 0;
-    clear:both;
-    display:block;
-    width: 100%;               
-    background-color:#EEE;
-    height: 1px;
-  }
-
 .weather-data{
+    padding: 0 15px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
+    & video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        z-index: -1;
+    }
     & .weather-left{
         grid-column: span 1;
         & .current-weather{

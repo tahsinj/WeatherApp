@@ -12,6 +12,7 @@ visibilityVal = document.getElementById('visibilityVal'),
 windSpeedVal = document.getElementById('windSpeedVal'),
 feelsVal = document.getElementById('feelsVal'),
 hourlyForecastCard = document.querySelector('.hourly-forecast'),
+videoCard = document.getElementById('bg-video'),
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
 function getWeatherDetails(name, lat, lon, country, state){
@@ -61,6 +62,29 @@ function getWeatherDetails(name, lat, lon, country, state){
                 <p><i class="fa-solid fa-location-dot"></i>&nbsp; ${name}, ${country}</p>
             </div>
         `;
+
+        let videoSrc = 'videos/',
+        weatherMain = data.weather[0].main.toLowerCase();
+        if (weatherMain.includes('thunderstorm'))
+            videoSrc += 'storm.mp4';
+        else if (weatherMain.includes('drizzle') || weatherMain.includes('rain'))
+            videoSrc += 'rain.mp4';
+        else if (weatherMain.includes('snow'))
+            videoSrc += 'snow.mp4';
+        else if (weatherMain.includes('clear')){
+            if (data.weather[0].icon.includes('d'))
+                videoSrc += 'clearday.mp4';
+            else
+                videoSrc += 'clearnight.mp4';
+        } else if (weatherMain.includes('cloud')){
+            if (data.weather[0].icon.includes('d'))
+                videoSrc += 'cloudy.mp4';
+            else
+                videoSrc += 'cloudynight.mp4';
+        } else
+            videoSrc += 'haze.mp4';
+        videoCard.setAttribute('src', videoSrc);
+
         let {sunrise, sunset} = data.sys,
         {timezone, visibility} = data,
         {humidity, pressure, feels_like} = data.main,
