@@ -57,8 +57,8 @@ function getWeatherDetails(name, lat, lon, country, state){
             </div>
             <hr>
             <div class="card-footer">
-                <p><i class="fa-solid fa-calendar"></i>${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getFullYear()}</p>
-                <p><i class="fa-solid fa-location-dot"></i>${name}, ${country}</p>
+                <p><i class="fa-solid fa-calendar"></i>&nbsp; ${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getFullYear()}</p>
+                <p><i class="fa-solid fa-location-dot"></i>&nbsp; ${name}, ${country}</p>
             </div>
         `;
         let {sunrise, sunset} = data.sys,
@@ -157,7 +157,7 @@ function getWeatherDetails(name, lat, lon, country, state){
             let a = 'PM';
             if (hr < 12) a = 'AM';
             if (hr == 0) hr = 12;
-            if (hr > 12) jr = hr - 12;
+            if (hr > 12) hr = hr - 12;
             hourlyForecastCard.innerHTML += `
                 <div class="card">
                     <p>${hr} ${a}</p>

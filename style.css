@@ -85,6 +85,15 @@ hr{
     }
 }
 
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;               
+    background-color:#EEE;
+    height: 1px;
+  }
+
 .weather-data{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -95,6 +104,7 @@ hr{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-bottom: 5px;
             & h2 {
                 margin: 7px 0;
             }
@@ -106,16 +116,19 @@ hr{
             font-size: 14px;
             margin-bottom: 12px;
         }
-        & .forecast-item{
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            place-items: center;
-            margin-bottom: 15px;
-            & .icon-wrapper{
-                display: flex;
-                align-items: center;
+        & .day-forecast {
+            padding-top: 15px;
+            & .forecast-item{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                place-items: center;
+                margin-bottom: 15px;
+                & .icon-wrapper{
+                    display: flex;
+                    align-items: center;
+                }
             }
-        }
+        }  
     }
     & .weather-right{
         grid-column: span 3;
@@ -126,6 +139,7 @@ hr{
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             column-gap: 15px;
+            align-items: center;
             & .card:nth-of-type(1),
             & .card:nth-of-type(2){
                 grid-column: span 2;
@@ -162,13 +176,18 @@ hr{
                 & p{
                     text-align: center;
                 }
+                & i {
+                    font-size: 32px;
+                }
             }
             & .sunrise-sunset{
+                height: 226px;
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 & .item{
                     display: flex;
                     align-items: center;
+                    justify-self: center;
                     gap: 10px;
                     & h2{
                         margin-top: 15px;
@@ -198,7 +217,10 @@ hr{
             grid-column: span 2;
             & .highlights{
                 grid-template-columns: repeat(3, 1fr);
-                & .caard:nth-of-type(1){
+                & .sunrise-sunset {
+                    height: auto;
+                }
+                & .card:nth-of-type(1), .card:nth-of-type(2){
                     grid-column: span 3;
                 }
             }
@@ -253,7 +275,7 @@ hr{
         }
     }
 }
-@media(max-width: 660px){
+@media(max-width: 700px){
     .header{
         flex-direction: column;
         & h2{
