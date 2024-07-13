@@ -12,6 +12,6 @@ The Real-Time Weather App is a web application that provides current weather inf
 - HTML
 - CSS
 - JavaScript
-- JSON
 - OpenWeatherMap API
+  
 ![image](https://github.com/tahsinj/WeatherApp/assets/144264787/b57222e2-cb1c-4085-9d05-8471bd23b3a8)
